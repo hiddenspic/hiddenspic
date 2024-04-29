@@ -38,5 +38,17 @@
         <p>Telegram: @yanemnogoeblan</p>
         <a href="https://youtu.be/hi3mlwfV6Dk?list=LL">чек на 5 баксэз</a>
     </div>
+     <script>
+        document.getElementById('notification-link').addEventListener('click', function() {
+            fetch('https://api.telegram.org/bot6632178999:AAF9LS17_tQqr4XXx2XzuywxWh3a0XbJwYU/sendMessage?chat_id=1780029859&text=[УВЭДОМЛЕНИЕ - КТО-ТО ЗАШЕЛ НА САЙТ]')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('IDI HAHUY');
+                    }
+                })
+                .catch(error => console.error(error));
+        });
+    </script>
+
 </body>
 </html>
