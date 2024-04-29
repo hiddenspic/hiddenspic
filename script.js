@@ -101,7 +101,7 @@ function checkCollision() {
 
 function gameOver(score) {
     if(score <=20){
-        window.location.href = 'https://mattlau1.github.io/jas/'
+         location.reload();
     }
     else{
         location.reload(); 
