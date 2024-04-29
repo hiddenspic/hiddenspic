@@ -141,6 +141,24 @@ function changeDirection(event) {
         dx = 0;
         dy = 1;
     }
+    
+    if (keyPressed === 'a' && !goingRight) { // A for left
+        dx = -1;
+        dy = 0;
+    }
+    if (keyPressed === 'w' && !goingDown) { // W for up
+        dx = 0;
+        dy = -1;
+    }
+    if (keyPressed === 'd' && !goingLeft) { // D for right
+        dx = 1;
+        dy = 0;
+    }
+    if (keyPressed === 's' && !goingUp) {  // S for down
+        dx = 0;
+        dy = 1;
+    }
+
 
     if (reversedControls) {
         dx *= -1; 
