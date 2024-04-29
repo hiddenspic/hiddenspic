@@ -1,0 +1,121 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222; 
+    color: #eee; 
+  }
+  
+  #nickname:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px #88ffcc;
+  }
+  
+
+  #gameContainer {
+    background: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  .title {
+    color: #c6f8c7; 
+    margin-bottom: 20px;
+  }
+  
+  #entryForm, #gameArea {
+    width: 400px;
+  }
+  
+  #nickname {
+    background: #444;
+    border: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    color: #eee;
+    border-radius: 5px;
+    width: calc(100% - 24px); 
+  }
+  
+  button {
+    background: #c6f8c7;
+    color: #333;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s; 
+  }
+  
+  button:hover {
+    background: #a2e0a4;
+  }
+  
+  #score {
+    color: #c6f8c7;
+    margin-bottom: 10px;
+  }
+  
+  #gameCanvas {
+    background: #222;
+    border: 2px solid #555;
+  }
+  
+#entryForm, #gameArea {
+    text-align: center;
+    margin: 20px;
+}
+#gameCanvas { 
+    background-color: #7e6d6b; 
+}
+
+#score {
+    font-family: 'Bungee', cursive;
+    color: #f9a825;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  #score {
+    font-family: 'Press Start 2P', cursive;
+    color: #f00;
+    background: linear-gradient(to right, #222, #555);
+    padding: 5px;
+  }
+
+  #score {
+    font-family: 'Oswald', sans-serif;
+    color: #fff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+
+#entryForm, #gameArea {
+    text-align: center;
+    margin: 20px;
+}
+
+#gameCanvas { 
+    background-color: #333; 
+    border: 2px solid #555; 
+}
+
+#score {
+    font-family: 'Oswald', sans-serif;
+    color: #a2e0a4; 
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    
+}
+
+#score {
+    font-family: 'Oswald', sans-serif;
+    color: #c6f8c7; 
+    background: #444;
+    border: 2px solid #8ea98e; 
+    padding: 5px;
+    text-shadow: none;
+
+}

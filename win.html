@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Победа!</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px; }
+        #timer { font-size: 24px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1 id="greeting"></h1> 
+    <p>Введи свой Telegram ID:</p>
+    <input type="text" id="telegramID">
+    <button id="sendButton">Отправить</button>
+    <p id="timer">15</p>
+
+    <script>
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const nickname = urlParams.get('nickname');
+        const token = urlParams.get('token');
+
+        if (!token || token !== sessionStorage.getItem('winToken')) {
+            window.location.href = 'index.html'; // Redirect if no or invalid token
+        }
+
+        sessionStorage.removeItem('winToken');
+        document.getElementById('greeting').textContent = `${nickname}, поздравляю тебя с победой!`;
+
+        let timeLeft = 15;
+        const timerElement = document.getElementById('timer');
+        const sendButton = document.getElementById('sendButton');
+        sessionStorage.removeItem('winToken');
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                sendButton.disabled = true; 
+            }
+        }, 1000); 
+
+        sendButton.addEventListener('click', () => {
+            const telegramID = document.getElementById('telegramID').value;
+            // ... (Here you would send the data to your server)
+            alert('Спасибо! Информация отправлена.'); // Placeholder
+            sendButton.disabled = true;
+        });
+    </script>
+</body>
+</html>
