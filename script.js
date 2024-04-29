@@ -113,57 +113,57 @@ function gameOver(score) {
 
 
 document.addEventListener('keydown', changeDirection);
+
 function changeDirection(event) {
     const LEFT_KEY = 37;
     const UP_KEY = 38;
     const RIGHT_KEY = 39;
     const DOWN_KEY = 40;
 
-    const keyPressed = event.keyCode;
+    const A_KEY = 65; 
+    const W_KEY = 87; 
+    const D_KEY = 68; 
+    const S_KEY = 83; 
+
+    const keyPressed = event.keyCode; 
     const goingUp = dy === -1;
     const goingDown = dy === 1;
     const goingRight = dx === 1;
     const goingLeft = dx === -1;
 
-    if (keyPressed === LEFT_KEY && !goingRight) {
-        dx = -1;
-        dy = 0;
-    }
-    if (keyPressed === UP_KEY && !goingDown) {
-        dx = 0;
-        dy = -1;
-    }
-    if (keyPressed === RIGHT_KEY && !goingLeft) {
-        dx = 1;
-        dy = 0;
-    }
-    if (keyPressed === DOWN_KEY && !goingUp) {
-        dx = 0;
-        dy = 1;
-    }
-    
-    if (keyPressed === 'a' && !goingRight) { // A for left
-        dx = -1;
-        dy = 0;
-    }
-    if (keyPressed === 'w' && !goingDown) { // W for up
-        dx = 0;
-        dy = -1;
-    }
-    if (keyPressed === 'd' && !goingLeft) { // D for right
-        dx = 1;
-        dy = 0;
-    }
-    if (keyPressed === 's' && !goingUp) {  // S for down
-        dx = 0;
-        dy = 1;
-    }
 
+    if (keyPressed === A_KEY && !goingRight) {
+        dx = -1;
+        dy = 0;
+    } else if (keyPressed === W_KEY && !goingDown) {
+        dx = 0;
+        dy = -1;
+    } else if (keyPressed === D_KEY && !goingLeft) { 
+        dx = 1;
+        dy = 0;
+    } else if (keyPressed === S_KEY && !goingUp) {  
+        dx = 0;
+        dy = 1;
+    } 
+
+    // Arrow Key Controls
+    else if (keyPressed === LEFT_KEY && !goingRight) {
+        dx = -1;
+        dy = 0;
+    } else if (keyPressed === UP_KEY && !goingDown) {
+        dx = 0;
+        dy = -1;
+    } else if (keyPressed === RIGHT_KEY && !goingLeft) {
+        dx = 1;
+        dy = 0;
+    } else if (keyPressed === DOWN_KEY && !goingUp) {
+        dx = 0;
+        dy = 1;
+    }
 
     if (reversedControls) {
         dx *= -1; 
         dy *= -1; 
     }
 }
-
 
