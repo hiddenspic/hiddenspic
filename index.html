@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mr.ogo</title>
     <style>
+        <!-- 5doolars: 0L/RgNC40LLQtdGC -->
         body {
             font-family: sans-serif;
             margin: 0;
@@ -31,13 +32,30 @@
             margin-bottom: 5px;
         }
     </style>
+    <!-- 5doolars: 7069646F72 -->
+
 </head>
 <body>
     <div class="card">
         <h1>mr.ogo</h1>
-        <!-- Add your contact details or links below -->
         <p>Telegram: @yanemnogoeblan</p>
-        <a href="https://google.com">Get your 5$</a>
+        <a href="https://www.youtube.com/watch?v=wnm4zmDlxYs&list=LL&index=65">Чек на 5$</a>
     </div>
+     <button class="runaway-btn">Catch Me!</button>
+
+    <script>
+        const button = document.querySelector(".runaway-btn");
+        button.addEventListener("mouseover", () => {
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            button.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        });
+        button.addEventListener("click", () => {
+            window.location.href = "https://pikabu.ru/story/khakhakhakha_1960338?utm_source=linkshare&utm_medium=sharing";
+        });
+    </script>
+
 </body>
 </html>
