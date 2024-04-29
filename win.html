@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Победа!</title>
+    <title>loser</title>
     <style>
         body { font-family: sans-serif; text-align: center; padding: 20px; }
         #timer { font-size: 24px; margin-top: 10px; }
+        #telegramID, #sendButton { display: none; }
+        .unselectable {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
     </style>
 </head>
 <body>
     <h1 id="greeting"></h1> 
-    <p>Введи свой Telegram ID:</p>
+    <p>Это - токены от телеграм-ботов</p>
     <input type="text" id="telegramID">
     <button id="sendButton">Отправить</button>
-    <p id="timer">15</p>
+    <p style="color: blue;" class="unselectable">7113648742:AAG_GjfJ6cK1Vv0HKR7iloO4VqjGpf35nOg</p>
+    <p style="color: red;" class="unselectable">6502449988:AAHCCwampsWQISID-dohNYLaJA8fpZj0uag</p>
+    <p id="timer">13</p>
+    <br>
+    <br>
+    <p>по истечению таймера вы будете переадресованны и вам придется проходить мини-игру заново</p>
 
     <script>
         
@@ -21,13 +34,14 @@
         const token = urlParams.get('token');
 
         if (!token || token !== sessionStorage.getItem('winToken')) {
-            window.location.href = 'index.html'; // Redirect if no or invalid token
+
+            window.location.href = 'pidoras.html'; 
         }
 
         sessionStorage.removeItem('winToken');
-        document.getElementById('greeting').textContent = `${nickname}, поздравляю тебя с победой!`;
+        document.getElementById('greeting').textContent = `${nickname}, поздравляю тебя с победой!\nВ проекте встретятся следующие алгоритмы шифрования:\nBase64, hex, шифр цезаря, на одно значение каждый шифр используется максимум 1 раз. Также кто-то мог перевернуть уже закодированную фразу :/`;
 
-        let timeLeft = 15;
+        let timeLeft = 13;
         const timerElement = document.getElementById('timer');
         const sendButton = document.getElementById('sendButton');
         sessionStorage.removeItem('winToken');
@@ -36,16 +50,19 @@
             timerElement.textContent = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(countdown);
-                sendButton.disabled = true; 
+                window.location.href = 'index.html'
+
             }
         }, 1000); 
 
         sendButton.addEventListener('click', () => {
             const telegramID = document.getElementById('telegramID').value;
-            // ... (Here you would send the data to your server)
-            alert('Спасибо! Информация отправлена.'); // Placeholder
-            sendButton.disabled = true;
+                
         });
     </script>
+    </br></br></br>
+    <img src="https://telegra.ph/file/f1f723d9fb45e1804e70d.jpg">
 </body>
+<footer>    <p style="color: rgb(255, 255, 255);" class="unselectable">6632178999:AAF9LS17_tQqr4XXx2XzuywxWh3a0XbJwYU</p>
+</footer>
 </html>

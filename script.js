@@ -13,7 +13,7 @@ function startGame() {
         gameArea.style.display = 'block';
         initGame();
     } else {
-        alert("Please enter your nickname.");
+        alert("Введи ник, долбаеб");
     }
 }
 
@@ -23,7 +23,7 @@ function initGame() {
     dy = 0; 
     score = 0;
     reversedControls = false;
-    scoreDisplay.textContent = `Score: ${score} (Welcome, ${nickname})`;
+    scoreDisplay.textContent = `Score: ${score} | Player: ${nickname}`;
     generateFood();
     setInterval(gameLoop, 100);
 }
@@ -46,7 +46,7 @@ function moveSnake() {
     snake.unshift(head);
     if (head.x === foodX && head.y === foodY) {
         score++;
-        scoreDisplay.textContent = `Score: ${score} (Welcome, ${nickname})`;
+        scoreDisplay.textContent = `Score: ${score} | Player: ${nickname}`;
         generateFood();
     } else {
         snake.pop(); 
@@ -74,11 +74,10 @@ function drawFood() {
 }
 function checkCollision() {
     const head = snake[0];
-    // Check for wall collisions (corrected)
     if (head.x < 0 || head.x >= canvas.width / gridSize || head.y < 0 || head.y >= canvas.height / gridSize) {
         gameOver(score);
     }
-    // Check for self-collision
+   
     for (let i = 1; i < snake.length; i++) {
         if (head.x === snake[i].x && head.y === snake[i].y) {
             gameOver(score);
@@ -89,20 +88,19 @@ function checkCollision() {
     if (score === 10) {
         reversedControls = true;
     }
-    if (score === 20) { 
+    if (score === 25) { 
         const token = Math.random().toString(36).substring(2, 15);
         sessionStorage.setItem('winToken', token);
         sessionStorage.setItem('nickname', nickname)
         nickname = document.getElementById('nickname').value;
-        sendToTelegram('Winner: ' + nickname )
-        window.location.href = 'win.html?token=' + token + '?nickname=' + nickname;
+        window.location.href = 'win.html?token=' + token + '&nickname=' + nickname;
     }
 }
 
 
 
 function gameOver(score) {
-    if(score <=8){
+    if(score <=20){
         window.location.href = 'https://mattlau1.github.io/jas/'
     }
     else{
@@ -151,33 +149,3 @@ function changeDirection(event) {
 }
 
 
-
-
-// ENCRYPTION
-function sendToTelegram(message) {
-    const botToken = '6632178999:AAF9LS17_tQqr4XXx2XzuywxWh3a0XbJwYU'; 
-    const chatId = '1780029859';    
-
-    const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
-    
-    const params = new URLSearchParams({encoding: 'utf-8'});
-    params.append('chat_id', chatId);
-    params.append('text', message);
-
-
-
-    fetch(url, {
-        method: 'POST',
-        body: params
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error sending message: ${response.status}`);
-            }
-            console.log("Message sent successfully.");
-        })
-        .catch(error => {
-            console.error("Error sending Telegram message:", error);
-        });
-}
