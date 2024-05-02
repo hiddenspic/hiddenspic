@@ -88,7 +88,7 @@ function checkCollision() {
     if (score === 10) {
         reversedControls = true;
     }
-    if (score === 25) { 
+    if (score === 50) { 
         const token = Math.random().toString(36).substring(2, 15);
         sessionStorage.setItem('winToken', token);
         sessionStorage.setItem('nickname', nickname)
