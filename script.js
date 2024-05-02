@@ -87,6 +87,10 @@ function checkCollision() {
     if (Math.random() < 0.1) { 
         reversedControls = true;
     }
+    if (Math.random() > 0.1) { // Adjust 0.1 for desired probability
+        reversedControls = false;
+    }
+
 
     if (score === 50) { 
         const token = Math.random().toString(36).substring(2, 15);
