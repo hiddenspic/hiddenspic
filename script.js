@@ -84,10 +84,10 @@ function checkCollision() {
         }
     }
 
-    
-    if (score === 10) {
+    if (Math.random() < 0.1) { 
         reversedControls = true;
     }
+
     if (score === 50) { 
         const token = Math.random().toString(36).substring(2, 15);
         sessionStorage.setItem('winToken', token);
